@@ -1,16 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
+/* INFORMACOES SUPERIORES */
 .barra-superior {
+    width: 100%;
+    height: 80px;
     background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
-}
-ion-icon {
-    font-size: 50px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0px 2px 6px gray;
 }
 
-.barra-inferior {
+.barra-superior img {
+    height: 50px;
+}
+.barra-superior ion-icon {
+    font-size: 42px;
+}
+
+
+/* MENSAGENS */
+.mensagens {
+    margin: 80px 0;
+    width: 100%;
+    height: 800px;
+    background-color: #E5E5E5;
+}
+
+.mensagens .status{
+    background-color: #DCDCDC;
+    height: 40px;
+}
+
+.mensagens .reservada {
     background-color: #FFFFFF;
+    height: 40px;
+}
+
+.mensagens .normal {
+    height: 40px;
+    background-color: #FFDEDE; 
+}
+
+.status, .reservada, .normal {
+    width: 100%;
+    height: 40px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+}
+
+
+/* INFORMACOES INFERIORES */
+.barra-inferior {
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 6px 16px gray;
+}
+
+.digitar {
+    font-family: roboto;
+}
+
+.barra-inferior ion-icon {
+    font-size: 26px;
 }

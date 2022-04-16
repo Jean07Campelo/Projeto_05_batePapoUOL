@@ -37,26 +37,34 @@
 
 .mensagens .status{
     background-color: #DCDCDC;
-    height: 40px;
 }
 
-.mensagens .reservada {
+.mensagens .private_message {
     background-color: #FFFFFF;
-    height: 40px;
 }
 
-.mensagens .normal {
-    height: 40px;
+.mensagens .message {
     background-color: #FFDEDE; 
 }
 
-.status, .reservada, .normal {
+.status, .private_message, .message {
     width: 100%;
-    height: 40px;
     border-radius: 2px;
     margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-family: roboto;
+    font-size: 14px;
 }
 
+.mensagens h1 {
+    color: #AAAAAA
+}
+
+.mensagens h2 {
+    font-weight: bold;
+}
 
 /* INFORMACOES INFERIORES */
 .barra-inferior {

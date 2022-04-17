@@ -1,33 +1,15 @@
-let messages = [];
-let nome = {};
-let usuarios;
+//let nome = {};
 
-const promisseMessages = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
-promisseMessages.then(carregarMensagens)
+buscarMensagens()
 
-
-//NOME USUARIO
-function cadastrarUsuario () {
-    nome.name = prompt("Olá jovem Padawan, qual seu nome?");
-    verificaNome
-    usuarios = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+function buscarMensagens () {
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+    
+    promise.then(carregarMensagens)   
 }
-
-function verificaNome (error) {
-let codigoErro = error.response.status
-
-while (codigoErro === 400) {
-    alert("Já existe um usuário com esse nome!")
-    cadastrarUsuario()
-} 
-    if (codigoErro === 200) {
-    carregarMensagens()
-}
-
-}
-
 
 function carregarMensagens (response) {
+    
     let mensagens = document.querySelector(".mensagens")
     messages = response.data
 
@@ -66,10 +48,8 @@ function carregarMensagens (response) {
 
         mensagens.scrollIntoView();
     }
-    
-
 }
 
-cadastrarUsuario()
-usuarios.catch(verificaNome);
+
+
 //setInterval(carregarMensagens, 3000);

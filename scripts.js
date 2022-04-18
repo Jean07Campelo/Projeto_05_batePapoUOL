@@ -22,10 +22,10 @@ function carregarMensagens (response) {
         if (messages[i].type === "message") {
             mensagens.innerHTML += `
             <li class="${messages[i].type}">
-            <h1>${messages[i].time}</h1>
-            <h2>${messages[i].from}</h2>
+            <h1>${messages[i].time}&nbsp</h1>
+            <h2>${messages[i].from}&nbsp</h2>
             para
-            <h2>${messages[i].to}:</h2>
+            <h2>&nbsp${messages[i].to}:&nbsp</h2>
             ${messages[i].text}
         </li>`  
         contador_mensagens++
@@ -36,8 +36,8 @@ function carregarMensagens (response) {
         else if (messages[i].type === "status") {
             mensagens.innerHTML += `
             <li class="${messages[i].type}">
-            <h1>${messages[i].time} </h1> 
-            <h2>${messages[i].from} </h2> 
+            <h1>${messages[i].time}&nbsp</h1> 
+            <h2>${messages[i].from}&nbsp</h2> 
             ${messages[i].text}
         </li>`
         contador_mensagens++
@@ -48,10 +48,10 @@ function carregarMensagens (response) {
             if (messages[i].to === nome.name) {
                 mensagens.innerHTML += `
             <li class="${messages[i].type}">
-            <h1>${messages[i].time}</h1>
-            <h2>${messages[i].from}</h2>
+            <h1>${messages[i].time}&nbsp</h1>
+            <h2>${messages[i].from}&nbsp</h2>
             reservadamente para 
-            <h2>${messages[i].to}:</h2>
+            <h2>&nbsp${messages[i].to}:&nbsp</h2>
             ${messages[i].text}
         </li>`
         contador_mensagens++

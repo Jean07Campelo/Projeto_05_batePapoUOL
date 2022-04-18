@@ -1,4 +1,5 @@
 let nome = {};
+let mensagem = {};
 
 cadastrarUsuario()
 
@@ -75,6 +76,15 @@ function manterConexao () {
     console.log("mantendo conexão")
 }
 
+//escrever mensagem
+function escreverMensagem () {
+    mensagem.name = nome.name;
+    mensagem.to = "todos"
+    mensagem.text = document.querySelector(".digitar").value
+    mensagem.type = "message"
+    console.log(mensagem)
+}
+escreverMensagem()
 
-setInterval(manterConexao, 5000);
+//setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);

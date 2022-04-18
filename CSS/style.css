@@ -81,8 +81,10 @@
     box-shadow: 0px 6px 16px gray;
 }
 
-.digitar {
+.digitar input{
     font-family: roboto;
+    font-size: 18px;
+    font-style: italic;
 }
 
 .barra-inferior ion-icon {

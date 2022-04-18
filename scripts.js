@@ -12,7 +12,7 @@ function buscarMensagens () {
 function carregarMensagens (response) {
     let mensagens = document.querySelector(".mensagens")
     let messages = response.data
-
+    
     for (let i = 0; i < messages.length; i++) {
 
         if (messages[i].type === "messages") {
@@ -34,14 +34,17 @@ function carregarMensagens (response) {
         </li>`
 
         } else if (messages[i].type === "private_message") {
-            mensagens.innerHTML += `
+            if (messages[i].to === nome.name) {
+                mensagens.innerHTML += `
             <li class="${messages[i].type}">
             <h1>${messages[i].time}</h1>
             <h2>${messages[i].from}</h2>
             reservadamente para 
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
-        </li>`}
+        </li>`
+            }
+            }
     }
 }
 

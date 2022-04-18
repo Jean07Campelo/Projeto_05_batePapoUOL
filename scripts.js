@@ -1,6 +1,5 @@
 let nome = {};
 
-buscarMensagens()
 cadastrarUsuario()
 
 
@@ -43,8 +42,6 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
         </li>`}
-
-        mensagens.scrollIntoView();
     }
 }
 
@@ -57,10 +54,13 @@ function cadastrarUsuario () {
     //envia nome usuario para sala
 function enviarUsuario () {
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+    
+    promise.then(buscarMensagens)
+
 }
 
 
 
 
 
-//setInterval(carregarMensagens, 3000);
+setInterval(buscarMensagens, 3000);

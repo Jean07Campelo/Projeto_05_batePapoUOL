@@ -51,10 +51,17 @@ function cadastrarUsuario () {
     enviarUsuario()
 }
 
+function usuarioErro (error) {
+    let codigoErro = error.response.status
+    while (codigoErro === 400) {
+        cadastrarUsuario()
+    }
+}
+
     //envia nome usuario para sala
 function enviarUsuario () {
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
-    
+    promise.catch(usuarioErro)
     promise.then(buscarMensagens)
 
 }

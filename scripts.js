@@ -1,6 +1,8 @@
-//let nome = {};
+let nome = {};
 
 buscarMensagens()
+cadastrarUsuario()
+
 
 function buscarMensagens () {
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
@@ -9,9 +11,8 @@ function buscarMensagens () {
 }
 
 function carregarMensagens (response) {
-    
     let mensagens = document.querySelector(".mensagens")
-    messages = response.data
+    let messages = response.data
 
     for (let i = 0; i < messages.length; i++) {
 
@@ -24,7 +25,6 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
         </li>`
-
         } 
         else if (messages[i].type === "status") {
             mensagens.innerHTML += `
@@ -42,13 +42,24 @@ function carregarMensagens (response) {
             reservadamente para 
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
-        </li>`
-
-        }
+        </li>`}
 
         mensagens.scrollIntoView();
     }
 }
+
+function cadastrarUsuario () {
+    nome.name = prompt("Olá jovem Padawan, qual seu nome?");
+    //chama funcao para enviar nome usuario para sala
+    enviarUsuario()
+}
+
+    //envia nome usuario para sala
+function enviarUsuario () {
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+}
+
+
 
 
 

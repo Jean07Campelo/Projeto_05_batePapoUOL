@@ -1,7 +1,6 @@
 let nome = {};
 let mensagem = {};
 let mensagens;
-let ultima_mensagem;
 let contador_mensagens = 0;
 
 cadastrarUsuario()
@@ -65,15 +64,15 @@ function carregarMensagens (response) {
     }
 }
 function ultimaMensagem () {
-    ultima_mensagem = document.querySelector(".mensagens").lastChild;
+    let ultima_mensagem = document.querySelector(".mensagens").lastChild;
     ultima_mensagem.scrollIntoView();
 }
 
 //tratar muitas mensagens no HTML
 function limparMensagens () {
     if (contador_mensagens > 250) {
-        mensagens = "";
         console.log("limpando excesso de mensagens")
+        contador_mensagens = 0;
     }
 }   
 

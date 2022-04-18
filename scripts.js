@@ -1,8 +1,11 @@
+//variaveis globais
 let nome = {};
 let mensagem = {};
 let mensagens;
 let contador_mensagens = 0;
 
+//chamada funcoes
+buscarMensagens()
 cadastrarUsuario()
 
 
@@ -124,5 +127,6 @@ function enviarMensagem () {
     promise.catch(cadastrarUsuario);
 }
 
+//chamada funcoes periodicas
 setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);

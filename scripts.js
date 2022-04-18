@@ -1,7 +1,7 @@
 let nome = {};
 let mensagem = {};
-let ultima_mensagem;
 let mensagens;
+let ultima_mensagem;
 let contador_mensagens = 0;
 
 cadastrarUsuario()
@@ -15,6 +15,7 @@ function buscarMensagens () {
 
 function carregarMensagens (response) {
     mensagens = document.querySelector(".mensagens")
+
     let messages = response.data
     
     for (let i = 0; i < messages.length; i++) {
@@ -64,17 +65,17 @@ function carregarMensagens (response) {
     }
 }
 function ultimaMensagem () {
-    ultima_mensagem = mensagens.lastChild;
+    ultima_mensagem = document.querySelector(".mensagens").lastChild;
     ultima_mensagem.scrollIntoView();
 }
 
 //tratar muitas mensagens no HTML
 function limparMensagens () {
-    if (contador_mensagens > 150) {
+    if (contador_mensagens > 250) {
         mensagens = "";
         console.log("limpando excesso de mensagens")
     }
-}
+}   
 
 function cadastrarUsuario () {
     nome.name = prompt("Olá jovem Padawan, qual seu nome?");

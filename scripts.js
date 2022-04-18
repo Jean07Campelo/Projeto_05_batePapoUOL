@@ -1,5 +1,6 @@
 let nome = {};
 let mensagem = {};
+let ultima_mensagem;
 
 cadastrarUsuario()
 
@@ -22,11 +23,13 @@ function carregarMensagens (response) {
             <h1>${messages[i].time}</h1>
             <h2>${messages[i].from}</h2>
             para
-            <h2>${messages[i].to}</h2>:
+            <h2>${messages[i].to}:</h2>
             ${messages[i].text}
-        </li>`
-        } mensagens.scrollIntoView();
-        /*
+        </li>`  
+        ultima_mensagem = mensagens.lastChild;
+        ultima_mensagem.scrollIntoView();
+    } 
+ 
         else if (messages[i].type === "status") {
             mensagens.innerHTML += `
             <li class="${messages[i].type}">
@@ -34,8 +37,9 @@ function carregarMensagens (response) {
             <h2>${messages[i].from} </h2> 
             ${messages[i].text}
         </li>`
-
-        } */
+            ultima_mensagem = mensagens.lastChild;
+            ultima_mensagem.scrollIntoView();
+        } 
         if (messages[i].type === "private_message") {
             if (messages[i].to === nome.name) {
                 mensagens.innerHTML += `
@@ -43,11 +47,14 @@ function carregarMensagens (response) {
             <h1>${messages[i].time}</h1>
             <h2>${messages[i].from}</h2>
             reservadamente para 
-            <h2>${messages[i].to}</h2>:
+            <h2>${messages[i].to}:</h2>
             ${messages[i].text}
         </li>`
-            } 
+        ultima_mensagem = mensagens.lastChild;
+        ultima_mensagem.scrollIntoView();
+    } 
             }
+
     }
 }
 

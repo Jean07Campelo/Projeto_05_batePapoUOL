@@ -76,15 +76,21 @@ function manterConexao () {
     console.log("mantendo conexão")
 }
 
+//chamar com onclick no ion-icon
 //escrever mensagem
 function escreverMensagem () {
     mensagem.name = nome.name;
     mensagem.to = "todos"
-    mensagem.text = document.querySelector(".digitar").value
+    mensagem.text = document.querySelector("input").value
     mensagem.type = "message"
-    console.log(mensagem)
+    enviarMensagem()
 }
-escreverMensagem()
+
+function enviarMensagem () {
+    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem);
+    promise.then(carregarMensagens);
+    promise.catch(cadastrarUsuario);
+}
 
 //setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);

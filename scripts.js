@@ -53,7 +53,7 @@ function cadastrarUsuario () {
 
 function usuarioErro (error) {
     let codigoErro = error.response.status
-    while (codigoErro === 400) {
+    while (codigoErro !== 200) {
         cadastrarUsuario()
     }
 }

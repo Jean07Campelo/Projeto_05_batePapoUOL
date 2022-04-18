@@ -70,8 +70,9 @@ function ultimaMensagem () {
 
 //tratar muitas mensagens no HTML
 function limparMensagens () {
-    if (contador_mensagens > 250) {
+    if (contador_mensagens > 200) {
         console.log("limpando excesso de mensagens")
+        mensagens.innerHTML = "";
         contador_mensagens = 0;
     }
 }   
@@ -86,7 +87,7 @@ function usuarioErro (error) {
     let codigoErro = error.response.status
     while (codigoErro !== 200) {
         cadastrarUsuario()
-    }
+    } 
 }
 
     //envia nome usuario para sala

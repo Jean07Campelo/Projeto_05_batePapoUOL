@@ -66,8 +66,12 @@ function enviarUsuario () {
 
 }
 
+//manter conexao
+function manterConexao () {
+    const promisse = axios.get("https://mock-api.driven.com.br/api/v6/uol/status", nome);
+    console.log("mantendo conexão")
+}
 
 
-
-
+setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);

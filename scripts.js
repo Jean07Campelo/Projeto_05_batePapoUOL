@@ -75,20 +75,26 @@ function manterConexao () {
     const promisse = axios.get("https://mock-api.driven.com.br/api/v6/uol/status", nome);
     console.log("mantendo conexão")
 }
-
-//chamar com onclick no ion-icon
-//escrever mensagem
+//enviar mensagem com clique
+function mensagemPronta () {
+    console.log("clicou em enviar mensagem");
+    escreverMensagem();
+}
+//pegar dados da mensagem
 function escreverMensagem () {
-    mensagem.name = nome.name;
+    mensagem.from = nome.name;
     mensagem.to = "todos"
     mensagem.text = document.querySelector("input").value
     mensagem.type = "message"
+    console.log("pegou dados da mensagem")
     enviarMensagem()
 }
 
 function enviarMensagem () {
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem);
-    promise.then(carregarMensagens);
+    console.log("função enviar mensagem")
+    console.log(mensagem)
+    promise.then(buscarMensagens);
     promise.catch(cadastrarUsuario);
 }
 

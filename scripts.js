@@ -94,5 +94,5 @@ function enviarMensagem () {
     promise.catch(cadastrarUsuario);
 }
 
-//setInterval(manterConexao, 5000);
+setInterval(manterConexao, 5000);
 setInterval(buscarMensagens, 3000);

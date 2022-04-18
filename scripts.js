@@ -2,6 +2,7 @@ let nome = {};
 let mensagem = {};
 let ultima_mensagem;
 let mensagens;
+let contador_mensagens = 0;
 
 cadastrarUsuario()
 
@@ -27,8 +28,9 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}:</h2>
             ${messages[i].text}
         </li>`  
+        contador_mensagens++
         ultimaMensagem()
-
+        limparMensagens()
     } 
  
         else if (messages[i].type === "status") {
@@ -38,7 +40,9 @@ function carregarMensagens (response) {
             <h2>${messages[i].from} </h2> 
             ${messages[i].text}
         </li>`
+        contador_mensagens++
         ultimaMensagem()
+        limparMensagens()
         } 
         if (messages[i].type === "private_message") {
             if (messages[i].to === nome.name) {
@@ -50,7 +54,9 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}:</h2>
             ${messages[i].text}
         </li>`
+        contador_mensagens++
         ultimaMensagem()
+        limparMensagens()
 
     } 
             }
@@ -60,6 +66,14 @@ function carregarMensagens (response) {
 function ultimaMensagem () {
     ultima_mensagem = mensagens.lastChild;
     ultima_mensagem.scrollIntoView();
+}
+
+//tratar muitas mensagens no HTML
+function limparMensagens () {
+    if (contador_mensagens > 150) {
+        mensagens = "";
+        console.log("limpando excesso de mensagens")
+    }
 }
 
 function cadastrarUsuario () {

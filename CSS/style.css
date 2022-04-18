@@ -89,4 +89,9 @@
 
 .barra-inferior ion-icon {
     font-size: 26px;
+    cursor: pointer; 
+}
+
+.barra-inferior ion-icon:hover {
+    color: rgb(27, 61, 255);
 }

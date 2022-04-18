@@ -77,7 +77,6 @@ function manterConexao () {
 }
 //enviar mensagem com clique
 function mensagemPronta () {
-    console.log("clicou em enviar mensagem");
     escreverMensagem();
 }
 //pegar dados da mensagem
@@ -86,14 +85,11 @@ function escreverMensagem () {
     mensagem.to = "todos"
     mensagem.text = document.querySelector("input").value
     mensagem.type = "message"
-    console.log("pegou dados da mensagem")
     enviarMensagem()
 }
 
 function enviarMensagem () {
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem);
-    console.log("função enviar mensagem")
-    console.log(mensagem)
     promise.then(buscarMensagens);
     promise.catch(cadastrarUsuario);
 }

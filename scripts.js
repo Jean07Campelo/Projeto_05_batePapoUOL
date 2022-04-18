@@ -1,6 +1,7 @@
 let nome = {};
 let mensagem = {};
 let ultima_mensagem;
+let mensagens;
 
 cadastrarUsuario()
 
@@ -12,7 +13,7 @@ function buscarMensagens () {
 }
 
 function carregarMensagens (response) {
-    let mensagens = document.querySelector(".mensagens")
+    mensagens = document.querySelector(".mensagens")
     let messages = response.data
     
     for (let i = 0; i < messages.length; i++) {
@@ -26,8 +27,8 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}:</h2>
             ${messages[i].text}
         </li>`  
-        ultima_mensagem = mensagens.lastChild;
-        ultima_mensagem.scrollIntoView();
+        ultimaMensagem()
+
     } 
  
         else if (messages[i].type === "status") {
@@ -37,8 +38,7 @@ function carregarMensagens (response) {
             <h2>${messages[i].from} </h2> 
             ${messages[i].text}
         </li>`
-            ultima_mensagem = mensagens.lastChild;
-            ultima_mensagem.scrollIntoView();
+        ultimaMensagem()
         } 
         if (messages[i].type === "private_message") {
             if (messages[i].to === nome.name) {
@@ -50,12 +50,16 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}:</h2>
             ${messages[i].text}
         </li>`
-        ultima_mensagem = mensagens.lastChild;
-        ultima_mensagem.scrollIntoView();
+        ultimaMensagem()
+
     } 
             }
 
     }
+}
+function ultimaMensagem () {
+    ultima_mensagem = mensagens.lastChild;
+    ultima_mensagem.scrollIntoView();
 }
 
 function cadastrarUsuario () {
@@ -81,7 +85,7 @@ function enviarUsuario () {
 
 //manter conexao
 function manterConexao () {
-    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
     console.log("mantendo conexão")
 }
 

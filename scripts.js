@@ -72,9 +72,11 @@ function enviarUsuario () {
 
 //manter conexao
 function manterConexao () {
-    const promisse = axios.get("https://mock-api.driven.com.br/api/v6/uol/status", nome);
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
     console.log("mantendo conexão")
 }
+
+
 //enviar mensagem com clique
 function mensagemPronta () {
     escreverMensagem();

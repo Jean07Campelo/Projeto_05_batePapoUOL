@@ -16,7 +16,7 @@ function carregarMensagens (response) {
     
     for (let i = 0; i < messages.length; i++) {
 
-        if (messages[i].type === "messages") {
+        if (messages[i].type === "message") {
             mensagens.innerHTML += `
             <li class="${messages[i].type}">
             <h1>${messages[i].time}</h1>
@@ -25,7 +25,8 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
         </li>`
-        } 
+        } mensagens.scrollIntoView();
+        /*
         else if (messages[i].type === "status") {
             mensagens.innerHTML += `
             <li class="${messages[i].type}">
@@ -34,7 +35,8 @@ function carregarMensagens (response) {
             ${messages[i].text}
         </li>`
 
-        } else if (messages[i].type === "private_message") {
+        } */
+        if (messages[i].type === "private_message") {
             if (messages[i].to === nome.name) {
                 mensagens.innerHTML += `
             <li class="${messages[i].type}">
@@ -44,7 +46,7 @@ function carregarMensagens (response) {
             <h2>${messages[i].to}</h2>:
             ${messages[i].text}
         </li>`
-            }
+            } 
             }
     }
 }
